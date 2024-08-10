@@ -5,90 +5,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Viktor Kotsiuban - About Me</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        .profile-container {
+            display: flex;
+            align-items: center;
+            margin: 50px auto;
+            width: 80%;
+            padding: 2rem;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .profile-picture {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-right: 2rem;
+            background-color: #ddd;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .profile-details h1 {
+            color: #0066cc;
+        }
+
+        .profile-details p {
+            font-size: 1.1rem;
+        }
+
+        .btn-custom {
+            background-color: #0066cc;
+            color: white;
+            margin: 0.5rem;
+        }
+
+        .btn-custom:hover {
+            background-color: #004a99;
+        }
+    </style>
 </head>
 <body>
 
-<div class="hero-image">
-    <div class="hero-text">
-        <h1>Viktor Kotsiuban</h1>
-        <p>Tech Innovator | Open-Source Contributor | Lifelong Learner</p>
+<div class="container">
+    <div class="profile-container">
+        <div class="profile-picture" style="background-image: url('me.jpg');"></div>
+        <div class="profile-details">
+            <h1>Viktor Kotsiuban</h1>
+            <p>I'm Viktor, a Ukrainian 🇺🇦 tech enthusiast based in Silicon Valley 🌉. Currently, I’m an engineering manager at a top data storage company, where I drive innovation and lead cutting-edge technology projects.</p>
+            <p><strong>My Mission:</strong> To push the boundaries of technology and continuously explore new frontiers.</p>
+            <p>💻 Tech Innovator | 🛠️ Open-Source Contributor | 🌱 Lifelong Learner</p>
+            <a href="https://codesparks.org" class="btn btn-custom">Check out CodeSparks</a>
+        </div>
+    </div>
+
+    <div class="text-center mt-5">
+        <h2>Let's Connect</h2>
+        <a href="https://github.com/gbdrm" class="btn btn-custom">GitHub</a>
+        <a href="https://www.linkedin.com/in/viktor-kotsiuban" class="btn btn-custom">LinkedIn</a>
+        <a href="https://twitter.com/vkotsiuban" class="btn btn-custom">Twitter</a>
     </div>
 </div>
 
-<div class="container mt-5">
-    <h2>Who I Am</h2>
-    <p>I'm Viktor, a passionate technologist from Ukraine 🇺🇦, currently living in Silicon Valley 🌉. I’m an engineering manager at one of the world’s leading data storage companies, where I drive innovative solutions in tech.</p>
-
-    <h2>What I Do</h2>
-    <p>💻 Tech Innovator: Leading engineering teams to build cutting-edge technology.</p>
-    <p>🛠️ Open-Source Contributor: Creator of CodeSparks, an open-source project dedicated to advancing tech skills.</p>
-
-    <h2>My Mission</h2>
-    <p>I’m committed to pushing the boundaries of what's possible in technology while staying true to my roots. I believe in the power of community, collaboration, and constant learning.</p>
-
-    <h2>Let's Connect</h2>
-    <p>[GitHub](https://github.com/gbdrm) | [LinkedIn](https://www.linkedin.com/in/viktor-kotsiuban)</p>
-</div>
-
 <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-
-    <style>
-        body {
-    font-family: 'Roboto', sans-serif;
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
-}
-
-.container {
-    width: 80%;
-    margin: auto;
-    overflow: hidden;
-    padding: 2rem;
-}
-
-h1, h2, h3 {
-    color: #0066cc;
-    text-align: center;
-}
-
-p {
-    font-size: 1.1rem;
-    margin-bottom: 1.5rem;
-}
-
-.hero-image {
-    background-image: url('me_cyberpunk.jpg');
-    background-size: cover;
-    background-position: center;
-    height: 300px;
-    position: relative;
-}
-
-.hero-text {
-    text-align: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-    font-size: 2rem;
-}
-
-.icons {
-    text-align: center;
-    margin: 2rem 0;
-}
-
-.icons i {
-    font-size: 2rem;
-    color: #0066cc;
-    margin: 0 1rem;
-}
-
-    </style>
 </body>
 </html>
