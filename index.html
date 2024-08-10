@@ -10,28 +10,34 @@
             font-family: 'Roboto', sans-serif;
             background-color: #f4f4f4;
             color: #333;
+            margin: 0;
+            padding: 0;
         }
 
         .profile-container {
             display: flex;
             align-items: center;
+            justify-content: center;
+            flex-direction: column;
             margin: 50px auto;
-            width: 80%;
+            width: 90%;
+            max-width: 800px;
             padding: 2rem;
             background-color: #fff;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             border-radius: 10px;
+            text-align: center;
         }
 
         .profile-picture {
             width: 200px;
             height: 200px;
             border-radius: 50%;
-            margin-right: 2rem;
             background-color: #ddd;
             background-size: cover;
             background-position: center;
             background-image: url('me.jpg');
+            margin-bottom: 1.5rem;
         }
 
         .profile-details h1 {
@@ -40,21 +46,38 @@
 
         .profile-details p {
             font-size: 1.1rem;
+            margin-bottom: 1rem;
         }
 
         .btn-custom {
             background-color: #0066cc;
             color: white;
             margin: 0.5rem;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
         }
 
         .btn-custom:hover {
             background-color: #004a99;
+            text-decoration: none;
         }
 
         .section-title {
             margin-top: 2rem;
             color: #0066cc;
+        }
+
+        @media (min-width: 768px) {
+            .profile-container {
+                flex-direction: row;
+                text-align: left;
+            }
+
+            .profile-picture {
+                margin-right: 2rem;
+                margin-bottom: 0;
+            }
         }
     </style>
 </head>
@@ -83,8 +106,8 @@
         </ul>
 
         <h2 class="section-title">Let's Connect</h2>
-        <a href="https://github.com/gbdrm" class="btn btn-custom">GitHub</a>
-        <a href="https://www.linkedin.com/in/viktor-kotsiuban" class="btn btn-custom">LinkedIn</a>
+        <a href="https://github.com/gbdrm" class="btn-custom">GitHub</a>
+        <a href="https://www.linkedin.com/in/viktor-kotsiuban" class="btn-custom">LinkedIn</a>
     </div>
 </div>
 
