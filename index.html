@@ -24,13 +24,14 @@
         }
 
         .profile-picture {
-            width: 150px;
-            height: 150px;
+            width: 200px;
+            height: 200px;
             border-radius: 50%;
             margin-right: 2rem;
             background-color: #ddd;
             background-size: cover;
             background-position: center;
+            background-image: url('me.jpg');
         }
 
         .profile-details h1 {
@@ -50,27 +51,40 @@
         .btn-custom:hover {
             background-color: #004a99;
         }
+
+        .section-title {
+            margin-top: 2rem;
+            color: #0066cc;
+        }
     </style>
 </head>
 <body>
 
 <div class="container">
     <div class="profile-container">
-        <div class="profile-picture" style="background-image: url('me.jpg');"></div>
+        <div class="profile-picture"></div>
         <div class="profile-details">
             <h1>Viktor Kotsiuban</h1>
-            <p>I'm Viktor, a Ukrainian 🇺🇦 tech enthusiast based in Silicon Valley 🌉. Currently, I’m an engineering manager at a top data storage company, where I drive innovation and lead cutting-edge technology projects.</p>
+            <p>I'm Viktor, a passionate technologist from Ukraine 🇺🇦, currently living in Silicon Valley 🌉. I’m an engineering manager at one of the world’s leading data storage companies, where I drive innovative solutions in tech.</p>
             <p><strong>My Mission:</strong> To push the boundaries of technology and continuously explore new frontiers.</p>
-            <p>💻 Tech Innovator | 🛠️ Open-Source Contributor | 🌱 Lifelong Learner</p>
-            <a href="https://codesparks.org" class="btn btn-custom">Check out CodeSparks</a>
         </div>
     </div>
 
-    <div class="text-center mt-5">
-        <h2>Let's Connect</h2>
+    <div class="container">
+        <h2 class="section-title">Who I Am</h2>
+        <p>I'm Viktor, a Ukrainian 🇺🇦 tech enthusiast now living in Silicon Valley 🌉, where I’m driving innovation as an engineering manager at one of the leading data storage companies 💻.</p>
+
+        <h2 class="section-title">What I Do</h2>
+        <ul>
+            <li><strong>💻 Tech Innovator:</strong> Leading engineering teams to build cutting-edge technology.</li>
+            <li><strong>🛠️ Open-Source Contributor:</strong> Creator of <a href="https://codesparks.org">CodeSparks</a>, an open-source project dedicated to advancing tech skills.</li>
+            <li><strong>🔍 Life Explorer:</strong> Constantly diving into life, technology, health, education, and the endless possibilities of the future.</li>
+            <li><strong>🌱 Lifelong Learner:</strong> Continuously expanding my knowledge in AI, automation, and beyond.</li>
+        </ul>
+
+        <h2 class="section-title">Let's Connect</h2>
         <a href="https://github.com/gbdrm" class="btn btn-custom">GitHub</a>
         <a href="https://www.linkedin.com/in/viktor-kotsiuban" class="btn btn-custom">LinkedIn</a>
-        <a href="https://twitter.com/vkotsiuban" class="btn btn-custom">Twitter</a>
     </div>
 </div>
 
