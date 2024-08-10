@@ -1,55 +1,94 @@
 <!DOCTYPE html>
-<html>
-    <script>
-        const referrerURL = document.referrer;
-        console.log("Referrer URL:", referrerURL); 
-        
-        if (referrerURL.includes("://code2weeks.online")) {
-            window.location.href = "https://gbdrm.github.io/code2weeks/";
-        }
-    </script>
+<html lang="en">
 <head>
-    <title>Viktor Kotsiuban</title>
-    <style>
-        body {
-            font-family: sans-serif;
-            margin: 50px;
-        }
-
-        h1 {
-            font-size: 2.5em;
-            margin-bottom: 20px;
-        }
-
-        footer {
-            margin-top: 40px;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viktor Kotsiuban - About Me</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1 style="text-align: center;">Hi there 👋</h1>
-    <p id="flags">My name is Viktor. I am originally from 🇺🇦 Ukraine 💛💙, living today in Silicon Valley <span style="font-size:2em;">🌉</span> and working as an engineering manager👨‍💻 in probably the best data storage company💻.</p>
 
-    <ul>
-        <li>🔭 I’m exploring tech, life, people, health, and other things.</li>
-        <li>🌱 I’m currently learning how to automate the updates to this page.</li>
-        <li>👯 I’m looking to collaborate on whatever is making the future come faster 🤖.</li>
-    </ul>
-    
-    <p>You can find me here as well: <a href="https://github.com/gbdrm">GitHub</a> <a href="https://www.linkedin.com/in/viktor-kotsiuban/">LinkedIn</a> </p>
-    <br />
+<div class="hero-image">
+    <div class="hero-text">
+        <h1>Viktor Kotsiuban</h1>
+        <p>Tech Innovator | Open-Source Contributor | Lifelong Learner</p>
+    </div>
+</div>
 
-    <h3>My projects</h3>
-    <p style="color:grey;">(Please don't let me miss updating it 👻. Poke me if there are no updates for more than a month ⌛.)</p>
-    <p>
-        <b>June 2024</b> <a href="/code2weeks">2 weeks coding challenge</a>,
-    </p>
-    <p>
-        <b>July 2024</b> <a href="https://codesparks.org/">Code Sparks</a>
-    </p>
-    <p>
-        <b>August 2024</b> <a href="https://iqtify.com/">IQTify.com</a>
-    </p>
-    
+<div class="container mt-5">
+    <h2>Who I Am</h2>
+    <p>I'm Viktor, a passionate technologist from Ukraine 🇺🇦, currently living in Silicon Valley 🌉. I’m an engineering manager at one of the world’s leading data storage companies, where I drive innovative solutions in tech.</p>
+
+    <h2>What I Do</h2>
+    <p>💻 Tech Innovator: Leading engineering teams to build cutting-edge technology.</p>
+    <p>🛠️ Open-Source Contributor: Creator of CodeSparks, an open-source project dedicated to advancing tech skills.</p>
+
+    <h2>My Mission</h2>
+    <p>I’m committed to pushing the boundaries of what's possible in technology while staying true to my roots. I believe in the power of community, collaboration, and constant learning.</p>
+
+    <h2>Let's Connect</h2>
+    <p>[GitHub](https://github.com/gbdrm) | [LinkedIn](https://www.linkedin.com/in/viktor-kotsiuban)</p>
+</div>
+
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+    <style>
+        body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+    padding: 2rem;
+}
+
+h1, h2, h3 {
+    color: #0066cc;
+    text-align: center;
+}
+
+p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+}
+
+.hero-image {
+    background-image: url('me_cyberpunk.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 300px;
+    position: relative;
+}
+
+.hero-text {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 2rem;
+}
+
+.icons {
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.icons i {
+    font-size: 2rem;
+    color: #0066cc;
+    margin: 0 1rem;
+}
+
+    </style>
 </body>
 </html>
