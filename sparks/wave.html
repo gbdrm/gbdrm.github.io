@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wave Propagation Simulation</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+        #container {
+            text-align: center;
+        }
+        canvas {
+            border: 2px solid #000;
+        }
+        button, input {
+            margin: 10px;
+            padding: 5px 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Wave Propagation Simulation</h1>
+        <canvas id="waveCanvas" width="500" height="500"></canvas>
+        <br>
+        <label for="gridSize">Grid Size:</label>
+        <input type="number" id="gridSize" min="5" max="50" value="15">
+        <button id="updateSize">Update Size</button>
+        <br>
+        <button id="start">Start</button>
+        <button id="stop">Stop</button>
+        <br />
+        <h5>Implemented for the Spark: <a href="https://codesparks.org/sparks/details/d1add03a-e457-4038-9031-d6ca7741a59d">Wave in the matrix</a></h5>
+    </div>
+    <script>
+        const canvas = document.getElementById('waveCanvas');
+        const ctx = canvas.getContext('2d');
+        const canvasSize = 500;
+        let size = 15;
+        let cellSize = canvasSize / size;
+        let grid = [];
+        let isRunning = false;
+        let animationId;
+
+        function initializeGrid() {
+            grid = Array(size).fill().map(() => Array(size).fill(0));
+            grid[Math.floor(size/2)][Math.floor(size/2)] = 1000;
+            cellSize = canvasSize / size;
+        }
+
+        function drawGrid() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let i = 0; i < size; i++) {
+                for (let j = 0; j < size; j++) {
+                    const value = grid[i][j];
+                    const blueValue = Math.floor(255 * Math.pow(value / 1000, 0.3));
+                    ctx.fillStyle = `rgb(0, ${255 - blueValue}, ${255 - Math.floor(blueValue * 0.7)})`;
+                    ctx.fillRect(j * cellSize, i * cellSize, cellSize, cellSize);
+                    
+                    ctx.strokeStyle = '#ccc';
+                    ctx.strokeRect(j * cellSize, i * cellSize, cellSize, cellSize);
+
+                    ctx.fillStyle = value > 500 ? 'white' : 'black';
+                    ctx.font = `${cellSize / 4}px Arial`;
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'middle';
+                    ctx.fillText(value.toFixed(1), (j + 0.5) * cellSize, (i + 0.5) * cellSize);
+                }
+            }
+        }
+
+        function updateGrid() {
+            const newGrid = Array(size).fill().map(() => Array(size).fill(0));
+            for (let i = 0; i < size; i++) {
+                for (let j = 0; j < size; j++) {
+                    let sum = 0;
+                    let count = 0;
+                    for (let di = -1; di <= 1; di++) {
+                        for (let dj = -1; dj <= 1; dj++) {
+                            if (di === 0 && dj === 0) continue;
+                            const ni = i + di;
+                            const nj = j + dj;
+                            if (ni >= 0 && ni < size && nj >= 0 && nj < size) {
+                                sum += grid[ni][nj];
+                                count++;
+                            }
+                        }
+                    }
+                    newGrid[i][j] = sum / count;
+                }
+            }
+            grid = newGrid;
+        }
+
+        function animate() {
+            updateGrid();
+            drawGrid();
+            if (isRunning) {
+                animationId = setTimeout(animate, 200);
+            }
+        }
+
+        document.getElementById('start').addEventListener('click', () => {
+            if (!isRunning) {
+                isRunning = true;
+                animate();
+            }
+        });
+
+        document.getElementById('stop').addEventListener('click', () => {
+            isRunning = false;
+            clearTimeout(animationId);
+            initializeGrid();
+            drawGrid();
+        });
+
+        document.getElementById('updateSize').addEventListener('click', () => {
+            const newSize = parseInt(document.getElementById('gridSize').value);
+            if (newSize >= 5 && newSize <= 50) {
+                size = newSize;
+                isRunning = false;
+                clearTimeout(animationId);
+                initializeGrid();
+                drawGrid();
+            } else {
+                alert('Please enter a grid size between 5 and 50.');
+            }
+        });
+
+        initializeGrid();
+        drawGrid();
+    </script>
+</body>
+</html>
