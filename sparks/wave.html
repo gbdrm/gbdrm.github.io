@@ -21,8 +21,11 @@
             border: 2px solid #000;
         }
         button, input {
-            margin: 10px;
+            margin: 5px;
             padding: 5px 10px;
+        }
+        .button-row {
+            margin-top: 10px;
         }
     </style>
 </head>
@@ -32,21 +35,26 @@
         <canvas id="waveCanvas" width="500" height="500"></canvas>
         <br>
         <label for="gridSize">Grid Size:</label>
-        <input type="number" id="gridSize" min="5" max="50" value="15">
+        <input type="number" id="gridSize" min="5" max="50" value="10">
         <button id="updateSize">Update Size</button>
-        <br>
-        <button id="start">Start</button>
-        <button id="stop">Stop</button>
-        <br />
-        <h5>Implemented for the Spark: <a href="https://codesparks.org/sparks/details/d1add03a-e457-4038-9031-d6ca7741a59d">Wave in the matrix</a></h5>
+        <div class="button-row">
+            <button id="start">Start</button>
+            <button id="pause">Pause</button>
+            <button id="stop">Stop</button>
+        </div>
+        <div class="button-row">
+            <button id="prevStep">Previous Step</button>
+            <button id="nextStep">Next Step</button>
+        </div>
     </div>
     <script>
         const canvas = document.getElementById('waveCanvas');
         const ctx = canvas.getContext('2d');
         const canvasSize = 500;
-        let size = 15;
+        let size = 10;
         let cellSize = canvasSize / size;
         let grid = [];
+        let previousGrids = [];
         let isRunning = false;
         let animationId;
 
@@ -54,6 +62,7 @@
             grid = Array(size).fill().map(() => Array(size).fill(0));
             grid[Math.floor(size/2)][Math.floor(size/2)] = 1000;
             cellSize = canvasSize / size;
+            previousGrids = [JSON.parse(JSON.stringify(grid))];
         }
 
         function drawGrid() {
@@ -79,24 +88,40 @@
 
         function updateGrid() {
             const newGrid = Array(size).fill().map(() => Array(size).fill(0));
+            const reflectionCoeff = 0.8;
+
             for (let i = 0; i < size; i++) {
                 for (let j = 0; j < size; j++) {
                     let sum = 0;
                     let count = 0;
+
                     for (let di = -1; di <= 1; di++) {
                         for (let dj = -1; dj <= 1; dj++) {
                             if (di === 0 && dj === 0) continue;
-                            const ni = i + di;
-                            const nj = j + dj;
-                            if (ni >= 0 && ni < size && nj >= 0 && nj < size) {
-                                sum += grid[ni][nj];
-                                count++;
+
+                            let ni = i + di;
+                            let nj = j + dj;
+
+                            if (ni < 0) ni = 1;
+                            if (ni >= size) ni = size - 2;
+                            if (nj < 0) nj = 1;
+                            if (nj >= size) nj = size - 2;
+
+                            let value = grid[ni][nj];
+                            if (i === 0 || i === size - 1 || j === 0 || j === size - 1) {
+                                value *= reflectionCoeff;
                             }
+
+                            sum += value;
+                            count++;
                         }
                     }
+
                     newGrid[i][j] = sum / count;
                 }
             }
+            previousGrids.push(JSON.parse(JSON.stringify(grid)));
+            if (previousGrids.length > 50) previousGrids.shift(); // Limit history
             grid = newGrid;
         }
 
@@ -115,10 +140,31 @@
             }
         });
 
+        document.getElementById('pause').addEventListener('click', () => {
+            isRunning = false;
+            clearTimeout(animationId);
+        });
+
         document.getElementById('stop').addEventListener('click', () => {
             isRunning = false;
             clearTimeout(animationId);
             initializeGrid();
+            drawGrid();
+        });
+
+        document.getElementById('prevStep').addEventListener('click', () => {
+            if (previousGrids.length > 1) {
+                isRunning = false;
+                clearTimeout(animationId);
+                grid = previousGrids.pop();
+                drawGrid();
+            }
+        });
+
+        document.getElementById('nextStep').addEventListener('click', () => {
+            isRunning = false;
+            clearTimeout(animationId);
+            updateGrid();
             drawGrid();
         });
 
