@@ -68,12 +68,17 @@
 
         .btn-custom:hover {
             background-color: #004a99;
-            text-decoration: none;
         }
 
         .section-title {
             margin-top: 2rem;
             color: #0066cc;
+            text-align: center;
+        }
+
+        .section-content {
+            text-align: left;
+            margin-top: 1rem;
         }
 
         @media (min-width: 768px) {
@@ -88,6 +93,10 @@
             }
 
             .profile-details {
+                text-align: left;
+            }
+
+            .section-content {
                 text-align: left;
             }
         }
@@ -105,22 +114,32 @@
         </div>
     </div>
 
-    <div class="container">
+    <div class="profile-container">
+        <div class="profile-details">
+            <h2 class="section-title">What I Do</h2>
+            <div class="section-content">
+                <p><strong>💻 Tech Innovator:</strong> Leading engineering teams to build cutting-edge technology.</p>
+                <p><strong>🛠️ Open-Source Contributor:</strong> Creator of <a href="https://codesparks.org">CodeSparks</a>, an open-source project dedicated to advancing tech skills.</p>
+                <p><strong>🔍 Life Explorer:</strong> Constantly diving into life, technology, health, education, and the endless possibilities of the future.</p>
+                <p><strong>🌱 Lifelong Learner:</strong> Continuously expanding my knowledge in AI, automation, and beyond.</p>
+            </div>
+        </div>
+    </div>
 
-        <h2 class="section-title">What I Do</h2>
-        <ul>
-            <li><strong>💻 Tech Innovator:</strong> Leading engineering teams to build cutting-edge technology.</li>
-            <li><strong>🛠️ Open-Source Contributor:</strong> Creator of <a href="https://codesparks.org">CodeSparks</a>, an open-source project dedicated to advancing tech skills.</li>
-            <li><strong>🔍 Life Explorer:</strong> Constantly diving into life, technology, health, education, and the endless possibilities of the future.</li>
-            <li><strong>🌱 Lifelong Learner:</strong> Continuously expanding my knowledge in AI, automation, and beyond.</li>
-        </ul>
-
-        <h2 class="section-title">Let's Connect</h2>
-        <a href="https://github.com/gbdrm" class="btn-custom">GitHub</a>
-        <a href="https://www.linkedin.com/in/viktor-kotsiuban" class="btn-custom">LinkedIn</a>
+    <div class="profile-container">
+        <div class="">
+            <h2 class="section-title">Let's Connect</h2>
+            <br/>
+            <div class="section-content">
+                <a href="https://github.com/gbdrm" class="btn-custom">GitHub</a>
+                <a href="https://www.linkedin.com/in/viktor-kotsiuban" class="btn-custom">LinkedIn</a>
+            </div>
+        </div>
     </div>
 </div>
 
-<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<!-- Removing the script causing the CORS error -->
+<!-- <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script> -->
+
 </body>
 </html>
